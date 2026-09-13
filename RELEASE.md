@@ -2,7 +2,7 @@
 
 *****************
 
-## Release ONDEWO SURVEY Rust Client 0.1.0
+## Release ONDEWO SURVEY Rust Client 2.0.0
 
 ### New Features
 
@@ -18,6 +18,18 @@
   `ondewo::survey::<service>_client::<Service>Client`. Hand-written modules live beside it
   under `src/` and are declared in the hand-written crate barrel `src/lib.rs`, which the
   generator leaves untouched.
+* The generated stubs under `src/api` are COMMITTED, so the crate builds straight from a checkout -
+  no docker, no compiler image and no submodule needed. CI compiles and tests exactly those files.
+* A test suite under `tests/` exercises the generated stubs rather than only the hand-written code:
+  prost messages are serialized and re-parsed field by field, oneofs and enum discriminants are
+  pinned, and the generated `FhirServer` - all three unary RPCs of `ondewo.survey.FHIR` - is served
+  over a loopback socket and driven by the generated `FhirClient`, so every declared RPC really is
+  encoded, routed by its `/ondewo.survey.FHIR/<Method>` path, answered and decoded again.
+  `ondewo-survey-api` declares no proto3 `optional` scalar anywhere, so there is no
+  explicit-presence case to assert; a `google.protobuf.Struct` round trip takes its place.
+* A `BearerTokenInterceptor` (`src/auth.rs`) attaches the Keycloak `authorization` and `cai-token`
+  metadata to every request; its `Debug` output redacts both credentials. `make coverage` gates the
+  hand-written sources at 100% line coverage and the same gate runs in CI.
 * `make build` runs the whole pipeline - submodule checkout, compiler image build, stub
   generation and `cargo build` - and `make check_build` asserts that a generated stub exists for
   every proto package before a release is cut.
