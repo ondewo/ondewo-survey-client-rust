@@ -1043,7 +1043,7 @@ pub mod fhir_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /** Create a Survey from FHIR format and an empty NLU Agent for it
+        /** <p>Create a Survey from FHIR format and an empty NLU Agent for it</p>
 */
         pub async fn create_fhir_survey(
             &mut self,
@@ -1066,7 +1066,7 @@ pub mod fhir_client {
                 .insert(GrpcMethod::new("ondewo.survey.FHIR", "CreateFHIRSurvey"));
             self.inner.unary(req, path, codec).await
         }
-        /** Get Survey Answers on FHIR format
+        /** <p>Get Survey Answers on FHIR format</p>
 */
         pub async fn get_fhir_survey_answers(
             &mut self,
@@ -1092,7 +1092,7 @@ pub mod fhir_client {
                 .insert(GrpcMethod::new("ondewo.survey.FHIR", "GetFHIRSurveyAnswers"));
             self.inner.unary(req, path, codec).await
         }
-        /** Get all Survey Answers on FHIR format
+        /** <p>Get all Survey Answers on FHIR format</p>
 */
         pub async fn get_all_fhir_survey_answers(
             &mut self,
@@ -1135,13 +1135,13 @@ pub mod fhir_server {
     /// Generated trait containing gRPC methods that should be implemented for use with FhirServer.
     #[async_trait]
     pub trait Fhir: std::marker::Send + std::marker::Sync + 'static {
-        /** Create a Survey from FHIR format and an empty NLU Agent for it
+        /** <p>Create a Survey from FHIR format and an empty NLU Agent for it</p>
 */
         async fn create_fhir_survey(
             &self,
             request: tonic::Request<super::CreateFhirSurveyRequest>,
         ) -> std::result::Result<tonic::Response<super::Survey>, tonic::Status>;
-        /** Get Survey Answers on FHIR format
+        /** <p>Get Survey Answers on FHIR format</p>
 */
         async fn get_fhir_survey_answers(
             &self,
@@ -1150,7 +1150,7 @@ pub mod fhir_server {
             tonic::Response<super::SurveyFhirAnswersResponse>,
             tonic::Status,
         >;
-        /** Get all Survey Answers on FHIR format
+        /** <p>Get all Survey Answers on FHIR format</p>
 */
         async fn get_all_fhir_survey_answers(
             &self,
