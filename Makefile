@@ -36,7 +36,7 @@ ONDEWO_SURVEY_VERSION=2.0.1
 
 # Submodule pins - `make checkout_defined_submodule_versions` checks out exactly these.
 # Pin the API to `tags/<api version>` before cutting a release; a branch is for development only.
-ONDEWO_SURVEY_API_GIT_BRANCH=tags/2.0.0
+ONDEWO_SURVEY_API_GIT_BRANCH=tags/2.0.1
 # The compiler has to be 5.15.4 or newer: 5.15.4 pre-warms tonic tls-native-roots, which
 # src/channel.rs needs, and an image older than 5.15.2 builds its crate without the README.md
 # that Cargo.toml's `readme` names (generate_ondewo_protos stages it).
