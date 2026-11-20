@@ -2,6 +2,15 @@
 
 *****************
 
+## Release ONDEWO SURVEY Rust Client 2.1.0
+
+### Improvements
+
+* Tracking API Version [2.1.0](https://github.com/ondewo/ondewo-survey-api/releases/tag/2.1.0) ( [Documentation](https://ondewo.github.io/ondewo-survey-api/) )
+* Generated with ondewo-proto-compiler 5.17.0 (protoc 35.1). New runtime floors: `prost` / `prost-types` 0.14.6 and `tonic` / `tonic-prost` 0.14.9.
+
+*****************
+
 ## Release ONDEWO SURVEY Rust Client 2.0.1
 
 ### New Features
